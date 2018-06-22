@@ -1,0 +1,20 @@
+<div class = "content">
+ <div ng-controller = "ourController">
+   <button ng-click="order='name'">Order By Name </button>
+   <button ng-click="order='belt'">Order By Belt </button>
+   <input type="text" ng-model = "search"  placeholder="Search a Fauji"/>
+         <ul id="f-list">
+              <li ng-repeat="fauji in fauj | orderBy: order | filter:search">
+               <h3>{{fauji.name}}</h3>
+               <div class="remove" ng-click="removeFauji(fauji)">x</div>
+                <span>{{fauji.belt}}</span>
+                </li>
+         </ul>
+         <form ng-submit="addFauji()">
+           <input type="text" placeholder="Name of new Fauji" ng-model="newfauji.name" />
+           <input type="text" placeholder="Describe Fauji" ng-model="newfauji.belt" />
+           <input type="submit" value="Add New Fauji" />
+         </form>
+      <a href="" ng-click="removeAll()">Remove all Faujis</a>
+ </div>
+</div>
